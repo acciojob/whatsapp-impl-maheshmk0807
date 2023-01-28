@@ -14,15 +14,15 @@ public class WhatsappService {
     }
 
     public Group createGroup(List<User> users) {
-        return whatsappRepository.createGroup(users);
+        return whatsappRepository.createGroups(users);
     }
 
     public int createMessage(String content) {
-        return whatsappRepository.createMessage(content);
+        return whatsappRepository.createMsg(content);
     }
 
     public int sendMessage(Message message, User sender, Group group) throws Exception {
-        return whatsappRepository.sendMessage(message, sender, group);
+        return whatsappRepository.Sendmsg(message, sender, group);
     }
 
     public String changeAdmin(User approver, User user, Group group) throws Exception {
