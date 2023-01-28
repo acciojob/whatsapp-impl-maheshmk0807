@@ -42,7 +42,7 @@ public class WhatsappRepository {
         If the mobile number exists in database, throw "User already exists" exception
         Otherwise, create the user and return "SUCCESS"
         */
-        if(userHashMap.containsKey(mobile)) {
+        if(userHashMap==null || userHashMap.containsKey(mobile)) {
             //THROW EXCEPTION
             throw new Exception("User already exists");
         }
@@ -64,7 +64,7 @@ public class WhatsappRepository {
         For example: Consider userList1 = {Alex, Bob, Charlie}, userList2 = {Dan, Evan}, userList3 = {Felix, Graham, Hugh}.
         If createGroup is called for these userLists in the same order, their group names would be "Group 1", "Evan", and "Group 2" respectively.
         */
-        if(users.size()>=2){
+        if(users.size()>2){
             Group group = new Group("Group "+customGroupCount,users.size());//may throw exception if size is 1
             groupUserMap.put(group,users);
             customGroupCount++;
@@ -85,7 +85,7 @@ public class WhatsappRepository {
          The 'i^th' created message has message id 'i'.
          Return the message id.
          */
-        Message message = new Message(messageId,content);
+        //Message message = new Message(messageId,content);
         messageId++;
         return messageId;
     }
