@@ -39,9 +39,9 @@ public class WhatsappRepository {
     public Group createGroup(List<User> users) {
         Group group;
         if(users.size()>2){
+            customGroupCount++;
             group = new Group("Group " + customGroupCount, users.size());
             groupUserMap.put(group,users);
-            customGroupCount++;
         }
         else
         {
