@@ -31,7 +31,7 @@ public class WhatsappRepository {
         }
         else{
             //CREATE USER
-            userHashMap.put(name,new User(name,mobile));
+            userHashMap.put(mobile,new User(name,mobile));
             return "SUCCESS";
         }
     }
@@ -53,6 +53,7 @@ public class WhatsappRepository {
     }
 
     public int createMessage(String content) {
+        Message msg = new Message(messageId,content);
         messageId++;
         return messageId;
     }

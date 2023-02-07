@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("whatsapp")
+@RequestMapping("/whatsapp")
 public class WhatsappController {
     WhatsappService whatsappService = new WhatsappService();
     @PostMapping("/add-user")
-    public String createUser(@RequestParam String name,@RequestParam String mobile) throws Exception {
+    public String createUser(@RequestParam("name") String name,@RequestParam("mobile") String mobile) throws Exception {
         return whatsappService.createUser(name, mobile);
     }
 
